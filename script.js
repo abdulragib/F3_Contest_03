@@ -62,6 +62,7 @@ function toggleCompleted(index) {
 function renderTodoList() {
     // Get today's date
     let today = new Date().toISOString().slice(0, 10);
+    console.log(today)
     
     // Filter items for "Today's Tasks" section
     let todayTasks = todoList.filter(item => item.date === today);
@@ -78,42 +79,23 @@ function renderTodoList() {
     let completedTasksContainer = document.getElementById("completed_todo");
     
     // Clear existing items from the containers
-    todayTasksContainer.innerHTML = "";
-    futureTasksContainer.innerHTML = "";
-    completedTasksContainer.innerHTML = "";
+    todayTasksContainer.innerHTML += "";
+    futureTasksContainer.innerHTML += "";
+    completedTasksContainer.innerHTML += "";
     
     // Render "Today's Tasks" section
     for (let i = 0; i < todayTasks.length; i++) {
       let item = todayTasks[i];
-      
+
       let itemContainer = document.createElement("ul");
-      itemContainer.classList.add("todo-item");
-      
-      let title=document.createElement('h2')
-      title.innerHTML='Today\'s Todolist'
-      itemContainer.appendChild(title)
 
-      let itemName = document.createElement("li");
-      itemName.innerHTML = item.name;
-      itemContainer.appendChild(itemName);
-      
-      let itemDate = document.createElement("li");
-      itemDate.innerHTML = item.date;
-      itemContainer.appendChild(itemDate);
-      
-      let itemPriority = document.createElement("li");
-      itemPriority.innerHTML = item.priority;
-      itemContainer.appendChild(itemPriority);
-      
-      let deleteButton = document.createElement("button");
-      deleteButton.innerHTML = "Delete";
-      deleteButton.addEventListener("click", () => deleteItem(i));
-      itemContainer.appendChild(deleteButton);
-
-      let toggleButton = document.createElement("button");
-      toggleButton.innerHTML = "Toggle";
-      toggleButton.addEventListener("click", () => toggleCompleted(i));
-      itemContainer.appendChild(toggleButton);
+      itemContainer.innerHTML =`
+      <li>${i+1} ${item.name}</li>
+      <li>${item.date}</li>
+      <li>${item.priority}</li>
+      <button onclick="deleteItem(${i})">Delete</button>
+      <button onclick="toggleCompleted(${i})">Toggle</button>
+      `
       
       todayTasksContainer.appendChild(itemContainer);
     }
@@ -122,35 +104,24 @@ function renderTodoList() {
     for (let i = 0; i < futureTasks.length; i++) {
       let item = futureTasks[i];
       
+      let toggleButton = document.createElement("button");
+      toggleButton.innerHTML = "Toggle";
+      toggleButton.addEventListener("click", () => toggleCompleted(i));
+  
+
+      let deleteButton = document.createElement("button");
+      deleteButton.innerHTML = "Delete";
+      deleteButton.addEventListener("click", () => deleteItem(i));
+
       let itemContainer = document.createElement("ul");
-      itemContainer.classList.add("todo-item");
-
-      let title=document.createElement('h2')
-      title.innerHTML='Future\'s Todolist'
-      futureTasksContainer.appendChild(title)
       
-      let itemName = document.createElement("li");
-      itemName.innerHTML = item.name;
-      itemContainer.appendChild(itemName);
-      
-      let itemDate = document.createElement("li");
-        itemDate.innerHTML = item.date;
-        itemContainer.appendChild(itemDate);
-
-        let itemPriority = document.createElement("li");
-        itemPriority.innerHTML = item.priority;
-        itemContainer.appendChild(itemPriority);
-
-
-        let toggleButton = document.createElement("button");
-        toggleButton.innerHTML = "Toggle";
-        toggleButton.addEventListener("click", () => toggleCompleted(i));
-        itemContainer.appendChild(toggleButton);
-
-        let deleteButton = document.createElement("button");
-        deleteButton.innerHTML = "Delete";
-        deleteButton.addEventListener("click", () => deleteItem(i));
-        itemContainer.appendChild(deleteButton);
+      itemContainer.innerHTML =`
+      <li>${i+1} ${item.name}</li>
+      <li>${item.date}</li>
+      <li>${item.priority}</li>
+      <button onclick="deleteItem(${i})">Delete</button>
+      <button onclick="toggleCompleted(${i})">Toggle</button>
+      `
 
         futureTasksContainer.appendChild(itemContainer);
 
@@ -158,30 +129,20 @@ function renderTodoList() {
 
      for (let i = 0; i < completedTasks.length; i++) {
         let item = completedTasks[i];
-        
-        let itemContainer = document.createElement("ul");
-        itemContainer.classList.add("todo-item");
 
-        let title=document.createElement('h2')
-        title.innerHTML='Completed\'s Todolist'
-        itemContainer.appendChild(title)
-        
-        let itemName = document.createElement("li");
-        itemName.innerHTML = item.name;
-        itemContainer.appendChild(itemName);
-        
-        let itemDate = document.createElement("li");
-          itemDate.innerHTML = item.date;
-          itemContainer.appendChild(itemDate);
-  
-          let itemPriority = document.createElement("li");
-          itemPriority.innerHTML = item.priority;
-          itemContainer.appendChild(itemPriority);
-  
-          let deleteButton = document.createElement("button");
+        let deleteButton = document.createElement("button");
           deleteButton.innerHTML = "Delete";
           deleteButton.addEventListener("click", () => deleteItem(i));
-          itemContainer.appendChild(deleteButton);
+        
+        let itemContainer = document.createElement("ul");
+        itemContainer.classList.add("done")
+
+        itemContainer.innerHTML =`
+      <li>${i+1} ${item.name}</li>
+      <li>${item.date}</li>
+      <button onclick="deleteItem(${i})">Delete</button>
+      <li>${deleteButton.outerHTML}</li>
+      `
   
           completedTasksContainer.appendChild(itemContainer);
        } 
