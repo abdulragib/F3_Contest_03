@@ -1,0 +1,110 @@
+*{
+    padding:0;
+    margin:0;
+    font-family: inter;
+    overflow: hidden; 
+}
+#container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    margin-top:30px;
+    width: 100%;
+}
+
+#input-fields{
+    margin-top:20px;
+    width:100%;
+    margin-left:40px;
+}
+
+input{
+    padding-top:7px;
+    padding-bottom: 7px;
+    padding-left:5px;
+    padding-right: 8%;
+    margin-right:10px;
+    border:1px solid black;
+}
+
+#itemPriority{
+    padding-top:7px;
+    padding-bottom: 7px;
+    padding-left:5px;
+    padding-right: 8%;
+    margin-right:10px;
+    border:1px solid black;
+}
+
+::placeholder {
+    color: black;
+    opacity: 1; 
+  }
+
+#itemName{
+    padding-right: 20%;
+}
+
+button{
+    padding:6px 40px;
+    background-color: black;
+    color:white;
+}
+
+#current_todo{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width:100%;
+    padding-left:40px;
+    margin-top:20px;
+}
+
+#future_todo{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width:100%;
+    padding-left:40px;
+    margin-top:20px;
+}
+
+#completed_todo{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width:100%;
+    padding-left:40px;
+    margin-top:20px;
+}
+
+ul{
+    width:90%;
+    border: 1px solid white;
+    display:flex;
+    justify-content: space-between;
+    list-style-type:none;
+    padding:10px;
+    border-radius: 8px;
+    background-color:black;
+    color:white;
+    margin-top:10px;
+}
+
+.done{
+    width:90%;
+    border: 1px solid black;
+    display:flex;
+    justify-content: space-between;
+    list-style-type:none;
+    padding:10px;
+    border-radius: 8px;
+    background-color:white;
+    color:black;
+    margin-top:10px;
+}
+

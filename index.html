@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F3_03</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>To-do List</h1>
+        <div id="input-fields">
+            <input type="text" placeholder="Item Name" id="itemName"></input>
+            <input type="text" placeholder="Deadline" id="itemDate"></input>
+            <select id="itemPriority">
+                <option value="" selected="selected" hidden="hidden">Priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+            <button id="add">Add Item</button>
+        </div>
+
+        <div id="current_todo">
+            <h2>Today's Todolist</h2>
+            <ul>
+                <li>hi</li>
+                <li>hello</li>
+                <li>Profession</li>
+                <li>Age</li>
+            </ul>
+
+            <ul>
+                <li>hi</li>
+                <li>hello</li>
+                <li>Profession</li>
+                <li>Age</li>
+            </ul>
+        </div>
+
+        <div id="future_todo">
+            <h2>Future's Todolist</h2>
+            <ul>
+                <li>hi</li>
+                <li>hello</li>
+                <li>Profession</li>
+                <li>Age</li>
+            </ul>
+
+            <ul>
+                <li>hi</li>
+                <li>hello</li>
+                <li>Profession</li>
+                <li>Age</li>
+            </ul>
+        </div>
+
+        <div id="completed_todo">
+            <h2>Completed's Todolist</h2>
+            <ul class="done">
+                <li>hi</li>
+                <li>hello</li>
+                <li>Profession</li>
+                <li>Age</li>
+            </ul>
+
+            <ul class="done">
+                <li>hi</li>
+                <li>hello</li>
+                <li>Profession</li>
+                <li>Age</li>
+            </ul>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
